@@ -89,11 +89,21 @@ class Customer
     return films.map{|film|Film.new(film)}
   end
 
-  def buy_ticket_subtract_funds(cust,movie,ticket)
+  def buy_ticket_subtract_funds(cust,movie,ticket) #this works
     if (ticket.customer_id==cust.id) && (ticket.film_id=movie.id)
       cust.funds -= movie.price
       cust.update()
+      ticket.save()
     end
+  end
+
+  def check_no_of_tickets #this works
+    sql="SELECT * FROM tickets WHERE customer_id=$1"
+    values=[@id]
+    result=SqlRunner.run(sql,values)
+    ticks=result.map{|ticket|Ticket.new(ticket)}
+
+    return ticks.length
   end
 
 

@@ -6,10 +6,12 @@ require_relative('./models/ticket')
 #dummy customer info
 customer1=Customer.new({'name'=> 'Joseph','funds'=>50.50})
 customer2=Customer.new({'name'=> 'Paul','funds'=>70.80})
+customer3=Customer.new({'name'=> 'Michelle','funds'=>100.00})
 
 #save customer data
 customer1.save
 customer2.save
+customer3.save
 
 #dummy movie info
 movie1=Film.new({'title'=>'Jaws','price'=>4.50})
@@ -26,6 +28,8 @@ ticket1=Ticket.new({'customer_id'=>customer1.id,'film_id'=>movie1.id})
 ticket2=Ticket.new({'customer_id'=>customer1.id,'film_id'=>movie2.id})
 ticket3=Ticket.new({'customer_id'=>customer2.id,'film_id'=>movie1.id})
 ticket4=Ticket.new({'customer_id'=>customer1.id,'film_id'=>movie3.id})
+ticket5=Ticket.new({'customer_id'=>customer3.id,'film_id'=>movie3.id})
+ticket6=Ticket.new({'customer_id'=>customer1.id,'film_id'=>movie3.id})
 
 
 #save ticket data
@@ -33,6 +37,8 @@ ticket1.save
 ticket2.save
 ticket3.save
 ticket4.save
+ticket5.save
+ticket6.save
 
 
 

@@ -4,8 +4,8 @@ require_relative('./models/film')
 require_relative('./models/ticket')
 
 #dummy customer info
-customer1=Customer.new({'name'=> 'Joseph','funds'=>10.50})
-customer2=Customer.new({'name'=> 'Paul','funds'=>17.80})
+customer1=Customer.new({'name'=> 'Joseph','funds'=>50.50})
+customer2=Customer.new({'name'=> 'Paul','funds'=>70.80})
 
 #save customer data
 customer1.save

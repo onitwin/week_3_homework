@@ -89,6 +89,13 @@ class Customer
     return films.map{|film|Film.new(film)}
   end
 
+  def buy_ticket_subtract_funds(cust,movie,ticket)
+    if (ticket.customer_id==cust.id) && (ticket.film_id=movie.id)
+      cust.funds -= movie.price
+      cust.update()
+    end
+  end
+
 
 
 

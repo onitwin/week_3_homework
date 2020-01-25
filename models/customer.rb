@@ -102,7 +102,6 @@ class Customer
     values=[@id]
     result=SqlRunner.run(sql,values)
     ticks=result.map{|ticket|Ticket.new(ticket)}
-
     return ticks.length
   end
 

@@ -69,6 +69,15 @@ class Film
 
 
 
+  def count_customers#this works
+    sql="SELECT * FROM tickets WHERE film_id=$1"
+    values=[@id]
+    result=SqlRunner.run(sql,values)
+    sold=result.map{|film|Film.new(film)}
+    return sold.length
+  end
+
+
 
 
 

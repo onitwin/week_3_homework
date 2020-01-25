@@ -57,26 +57,39 @@ class Customer
     SqlRunner.run(sql)
   end
 
-  # def update_funds(amount)
-  #   sql="UPDATE customers SET (funds) =($1)"
-  #   value=[amount]
-  #   submit= SqlRunner... ect
-  # end
-
-
-
-
-
-
-
-
-
   def self.all#working
     sql="SELECT * FROM customers"
     customer_data=SqlRunner.run(sql) #at this point customer array is an array of hashes
     customers=customer_data.map{|geezer|Customer.new(geezer)}
     return customers
   end
+
+
+
+  # def booked_films
+  #   sql="SELECT films.*
+  #   FROM films
+  #   INNER JOIN tickets
+  #   ON tickets.film_id=film_id
+  #   WHERE tickets.customer_id=$1"
+  #   values=[@id]
+  #   films=SqlRunner.run(sql,values)
+  #   result=films.map{|film|Film.new(film)}
+  #   return result
+  # end
+
+  def booked_films
+    sql="SELECT *
+    FROM films
+    INNER JOIN tickets
+    ON tickets.film_id=films.id
+    WHERE tickets.customer_id=$1"
+    values=[@id]
+    films=SqlRunner.run(sql,values)
+    return films.map{|film|Film.new(film)}
+  end
+
+
 
 
 

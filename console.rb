@@ -2,6 +2,7 @@ require ('pry')
 require_relative('./models/customer')
 require_relative('./models/film')
 require_relative('./models/ticket')
+require_relative('./models/screening')
 
 #dummy customer info
 customer1=Customer.new({'name'=> 'Joseph','funds'=>50.50})
@@ -42,9 +43,14 @@ ticket6.save
 
 
 
-# customer1.funds =100.30
-# customer1.name="Deirde"
-# customer1.update()
+#dummy screening data
+screening1=Screening.new({'film_id'=>movie1.id,'showtime'=> 1700})
+screening2=Screening.new({'film_id'=>movie2.id,'showtime'=> 1900})
+screening3=Screening.new({'film_id'=>movie3.id,'showtime'=> 2100})
+#save screening data
+screening1.save
+screening2.save
+screening3.save
 
 
 

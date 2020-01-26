@@ -1,3 +1,4 @@
+DROP TABLE screenings;
 DROP TABLE tickets;
 DROP TABLE customers;
 DROP TABLE films;
@@ -26,3 +27,11 @@ CREATE TABLE tickets(
   customer_id INT REFERENCES customers(id),
   film_id INT REFERENCES films(id)
 );
+
+
+CREATE TABLE screenings(
+  id SERIAL PRIMARY KEY,
+  film_id INT REFERENCES films(id),
+  showtime INT,
+  tickets_sold INT
+)
